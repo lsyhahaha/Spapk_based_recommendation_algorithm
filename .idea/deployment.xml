@@ -9,6 +9,13 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="node1 (1)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/spark001" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="root@node1:22">
         <serverdata>
           <mappings>
