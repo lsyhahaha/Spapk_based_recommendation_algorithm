@@ -37,7 +37,11 @@ evaluator = RegressionEvaluator(metricName="rmse", labelCol="rating", prediction
 rmse = evaluator.evaluate(predictions)
 print("Root Mean Squared Error (RMSE)(模型的均方根误差) = " + str(rmse))
 
-# 针对某个用户进行音乐推荐
-user_id = 1
-user_recs = model.recommendForUserSubset(spark.createDataFrame([(user_id,)]).toDF("user_id"), 5)
-user_recs.show()
+# # 针对某个用户进行音乐推荐
+# user_id = 1
+# user_recs = model.recommendForUserSubset(spark.createDataFrame([(user_id,)]).toDF("user_id"), 5)
+# user_recs.show()
+
+# 对所有用户进行音乐推荐
+all_user_recs = model.recommendForAllUsers(5)
+all_user_recs.show()

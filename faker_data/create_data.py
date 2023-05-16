@@ -6,12 +6,13 @@ import csv
 import random
 
 
-def music_ratings():
+def music_ratings(k=100):
+    print("k = ", k)
     ratings = []
-    music_ids = range(1001, 1101)  # 音乐ID范围：1001-1100
-    user_ids = range(1, 21)  # 用户ID范围：1-20
+    music_ids = range(1001, 1101+k)  # 音乐ID范围：1001-1100
+    user_ids = range(1, 50)  # 用户ID范围：1-20
 
-    for _ in range(100):
+    for _ in range(k):
         user_id = random.choice(user_ids)
         music_id = random.choice(music_ids)
         rating = round(random.uniform(1.0, 5.0), 1)
@@ -26,4 +27,4 @@ def music_ratings():
         writer.writeheader()
         writer.writerows(ratings)
     print("音乐推荐数据已保存到 music_ratings.csv 文件。")
-music_ratings()
+music_ratings(k=1000)
