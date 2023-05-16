@@ -35,7 +35,7 @@ predictions = model.transform(test_data)
 # 评估预测结果
 evaluator = RegressionEvaluator(metricName="rmse", labelCol="rating", predictionCol="prediction")
 rmse = evaluator.evaluate(predictions)
-print("Root Mean Squared Error (RMSE) = " + str(rmse))
+print("Root Mean Squared Error (RMSE)(模型的均方根误差) = " + str(rmse))
 
 # 针对某个用户进行音乐推荐
 user_id = 1
