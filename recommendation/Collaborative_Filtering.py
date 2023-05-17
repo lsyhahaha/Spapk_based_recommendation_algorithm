@@ -48,29 +48,29 @@ all_user_recs.show()
 
 
 
-import matplotlib.pyplot as plt
-# 将推荐结果转换为Pandas DataFrame
-user_recs_pd = all_user_recs.toPandas()
-# 创建一个图形
-fig, ax = plt.subplots()
-
-# 遍历每个用户的推荐结果并绘制散点图
-for _, row in user_recs_pd.iterrows():
-    user_id = row['user_id']
-    recommendations = row['recommendations']
-
-    # 提取音乐ID和推荐分数
-    music_ids = [rec['music_id'] for rec in recommendations]
-    ratings = [rec['rating'] for rec in recommendations]
-
-    # 绘制散点图
-    ax.scatter(music_ids, ratings, label=f'User {user_id}')
-
-# 添加图例、坐标轴标签和标题
-ax.legend()
-ax.set_xlabel('Music ID')
-ax.set_ylabel('Rating')
-ax.set_title('Music Recommendations for Users')
-
-# 显示图形
-plt.show()
+# import matplotlib.pyplot as plt
+# # 将推荐结果转换为Pandas DataFrame
+# user_recs_pd = all_user_recs.toPandas()
+# # 创建一个图形
+# fig, ax = plt.subplots()
+#
+# # 遍历每个用户的推荐结果并绘制散点图
+# for _, row in user_recs_pd.iterrows():
+#     user_id = row['user_id']
+#     recommendations = row['recommendations']
+#
+#     # 提取音乐ID和推荐分数
+#     music_ids = [rec['music_id'] for rec in recommendations]
+#     ratings = [rec['rating'] for rec in recommendations]
+#
+#     # 绘制散点图
+#     ax.scatter(music_ids, ratings, label=f'User {user_id}')
+#
+# # 添加图例、坐标轴标签和标题
+# ax.legend()
+# ax.set_xlabel('Music ID')
+# ax.set_ylabel('Rating')
+# ax.set_title('Music Recommendations for Users')
+#
+# # 显示图形
+# plt.show()

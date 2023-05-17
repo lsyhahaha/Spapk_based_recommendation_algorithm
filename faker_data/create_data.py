@@ -27,4 +27,24 @@ def music_ratings(k=100):
         writer.writeheader()
         writer.writerows(ratings)
     print("音乐推荐数据已保存到 music_ratings.csv 文件。")
-music_ratings(k=1000)
+# music_ratings(k=1000)
+
+def music_features(k=1000):
+    # 生成k条音乐特征数据
+    data = []
+    for music_id in range(1, k + 1):
+        # 生成随机的特征向量
+        feature_vector = [random.random() for _ in range(10)]
+        data.append([music_id] + feature_vector)
+
+    # 将数据写入CSV文件
+    with open('music_features.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerow(['music_id'] + [f'feature_{i}' for i in range(10)])  # 写入表头
+        writer.writerows(data)  # 写入数据
+
+    print(f"{k}条音乐特征数据已生成并写入music_features.csv文件。")
+
+
+# 调用函数生成1000条音乐特征数据
+music_features(1000)
