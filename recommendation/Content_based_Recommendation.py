@@ -8,11 +8,6 @@
 '''
 import os
 os.environ['JAVA_HOME']='/export/server/jdk1.8.0_241'
-from pyspark.ml.evaluation import RegressionEvaluator
-from pyspark.ml.feature import VectorAssembler
-from pyspark.ml.recommendation import ALS
-from pyspark.sql import SparkSession
-
 from pyspark.sql import SparkSession
 from pyspark.ml.feature import HashingTF, IDF
 from pyspark.ml.linalg import Vectors
