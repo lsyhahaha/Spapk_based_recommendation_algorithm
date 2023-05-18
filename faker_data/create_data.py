@@ -29,22 +29,35 @@ def music_ratings(k=100):
     print("音乐推荐数据已保存到 music_ratings.csv 文件。")
 # music_ratings(k=1000)
 
-def music_features(k=1000):
-    # 生成k条音乐特征数据
-    data = []
-    for music_id in range(1, k + 1):
-        # 生成随机的特征向量
-        feature_vector = [random.random() for _ in range(10)]
-        data.append([music_id] + feature_vector)
+import random
+import csv
 
-    # 将数据写入CSV文件
-    with open('music_features.csv', 'w', newline='') as file:
+
+# 生成音乐数据
+def generate_music_data(num_samples):
+    music_data = []
+    for i in range(num_samples):
+        song_id = f"song_{i}"
+        genre = random.choice(["pop", "rock", "jazz", "hip-hop", "classical"])
+        artist = f"artist_{random.randint(1, 10)}"
+        lyrics = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+        duration = random.randint(180, 600)
+
+        music_data.append([song_id, genre, artist, lyrics, duration])
+
+    return music_data
+
+
+# 保存音乐数据到CSV文件
+def save_music_data_to_csv(data, file_path):
+    with open(file_path, 'w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerow(['music_id'] + [f'feature_{i}' for i in range(10)])  # 写入表头
-        writer.writerows(data)  # 写入数据
-
-    print(f"{k}条音乐特征数据已生成并写入music_features.csv文件。")
+        writer.writerow(["song_id", "genre", "artist", "lyrics", "duration"])
+        writer.writerows(data)
 
 
-# 调用函数生成1000条音乐特征数据
-music_features(1000)
+# 生成并保存音乐数据
+num_samples = 100  # 需要生成的音乐样本数量
+music_data = generate_music_data(num_samples)
+save_music_data_to_csv(music_data, "music_features.csv")
+
